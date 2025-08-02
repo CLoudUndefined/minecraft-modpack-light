@@ -1,0 +1,17 @@
+filename = 'citadel-2.6.1-1.20.1.jar'
+name = 'Citadel'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'citadel-2.6.1-1.20.1'
+
+[download]
+hash = '97ccbfda78ed538669352d868ad6fa6075ec6a99'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6002521
+project-id = 331936

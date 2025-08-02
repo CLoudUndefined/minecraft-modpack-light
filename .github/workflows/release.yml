@@ -1,0 +1,37 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Prepare directories
+        run: mkdir -p build/client build/server
+
+      - name: Build client artifact
+        run: |
+          cp -r common/* build/client/ 2>/dev/null || true
+          cp -r client/* build/client/ 2>/dev/null || true
+          cd build/client && zip -9r ../../minecraft-modpack-client-${{ github.ref_name }}.zip .
+
+      - name: Build server artifact
+        run: |
+          cp -r common/* build/server/ 2>/dev/null || true
+          cp -r server/* build/server/ 2>/dev/null || true
+          cd build/server && zip -9r ../../minecraft-modpack-server-${{ github.ref_name }}.zip .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            minecraft-modpack-client-${{ github.ref_name }}.zip
+            minecraft-modpack-server-${{ github.ref_name }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}

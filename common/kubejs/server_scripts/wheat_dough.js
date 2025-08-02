@@ -1,0 +1,12 @@
+ServerEvents.recipes(event => {
+  event.custom({
+    type: 'minecraft:campfire_cooking',
+    category: 'food',
+    cookingtime: 600,
+    experience: 0.0,
+    ingredient: {
+      item: 'farmersdelight:wheat_dough'
+    },
+    result: 'minecraft:bread'
+  });
+});

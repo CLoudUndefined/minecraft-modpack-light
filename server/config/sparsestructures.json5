@@ -1,0 +1,17 @@
+{
+  "spreadFactor": 3,
+  "customSpreadFactors": [
+    {
+      "structure": "minecraft:shipwreck",
+      "factor": 1.5
+    },
+    {
+      "structure": "minecraft:fortress",
+      "factor": 1.5
+    },
+    {
+      "structure": "minecraft:bastion_remnant",
+      "factor": 1.5
+    }
+  ]
+}
